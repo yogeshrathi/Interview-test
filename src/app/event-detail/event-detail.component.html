@@ -1,0 +1,29 @@
+<div *ngIf="event">
+    <h2 style="padding: 10px;">{{event.title | uppercase}} Details</h2>
+    
+    <div style="padding: 10px;">
+        <div>
+            Start Date : {{event.startDate}}
+        </div>
+        <div>
+            Start Time : {{event.startTime}}
+        </div>
+        <div>
+            End Date : {{event.endDate}}
+        </div>
+        <div>
+            End Time : {{event.endTime}}
+        </div>
+        <div>
+            Location : {{event.location}}
+        </div>
+        <div>
+           Email : {{event.endTime}}
+        </div>
+        <div>
+           Description : {{event.description}}
+        </div>
+
+        <div class="btn btn-danger" style="margin: 15px 0px;" (click)="deleteEvent();"> Delete Event </div>
+    </div>
+    </div>

@@ -1,0 +1,97 @@
+<div class="container-fluid mb-12">
+    <!-- {{userForm.value | json}} -->
+    <div>
+        <h1>ADD EVENT</h1>
+    </div>
+    <div>
+        <form #userForm="ngForm">
+            <!--Title-->
+            <div class="form-group" style="width: 20%;">
+                <input type="text" name="title" class="form-control"
+                 [(ngModel)]="event.title"  placeholder="ADD TITLE">
+            </div>
+
+            <!--Start Date & Start time -->
+            <div class="wid50">
+                <div class="form-group wid40 marRight10">
+                    <label class="input-group">
+                        Start Date
+                    </label>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp" [(ngModel)]="event.startDate" ngbDatepicker #d="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary calendar"
+                                (click)="d.toggle()" type="button"></button>
+                            </div>
+                      </div>
+                </div>
+                <div class="form-group wid40 top38">
+                    <ngb-timepicker [(ngModel)]="event.startTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                </div>
+            </div>
+            <div class="wid50">
+                <div class="form-group wid40 marRight10">
+                    <label class="input-group">
+                        End Date
+                    </label>
+                    <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd"
+                             name="dp2" [(ngModel)]="event.endDate" ngbDatepicker #d2="ngbDatepicker">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary calendar"
+                                (click)="d2.toggle()" type="button"></button>
+                            </div>
+                      </div>
+                </div>
+                <div class="form-group wid40 top38">
+                    <ngb-timepicker [(ngModel)]="event.endTime" [ngModelOptions]="{standalone: true}"></ngb-timepicker>
+                </div>
+            </div>
+
+            <!-- All day checkbox -->
+            <div class="form-group form-check top65">
+                <input type="checkbox" [(ngModel)]="event.isallDay" class="form-check-input" name="IsAllDay" id="exampleCheck1" style="cursor: pointer;">
+                <label class="form-check-label" for="exampleCheck1">All Day</label>
+            </div>
+
+              <!-- Event Details -->
+              <div class="wid40" style="vertical-align: text-top">
+                <h1> EVENT DETAILS </h1>
+                <div class="form-group wid40B">
+                    <input type="text" class="form-control" placeholder="Search Location"
+                      id="place-search" name="Search" />
+                    <input type="text"  name="Location" [(ngModel)]="event.location" class="form-control" placeholder="ADD LOCATION">
+                </div>
+
+                <div class="form-group wid40B">
+                    <input type="email"  name="Email" [(ngModel)]="event.email" class="form-control" placeholder="ADD EMAIL">
+                </div>
+
+                <div class="form-group wid40B">
+                   <textarea rows="4"  name="Description" [(ngModel)]="event.description" class="form-control" cols="50"></textarea>
+                </div>
+              </div>
+
+              <!-- Add Guest -->
+              <div class="wid50" style="vertical-align: text-top">
+                <h1> ADD GUEST </h1>
+                <div class="form-group wid40" style=" margin-right: 5%;">
+                    <input type="text" [(ngModel)]="guest" name="guest" class="form-control" placeholder="ADD GUEST">
+                </div>
+                <span class="btn btn-primary" (click)="addGuest()"> Add </span>
+                <div>
+                    <ul style="list-style: decimal-leading-zero;
+                    font-size: 16px;">
+                        <li *ngFor = "let g of guestList" style="margin-bottom: 15px;">
+                            <span class="badges">
+                                {{g}}
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<button class="btn btn-primary" (click)="addEvent()" style="margin: 0px 15px;">Add</button>

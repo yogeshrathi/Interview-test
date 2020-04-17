@@ -1,0 +1,20 @@
+.wid50{
+  width: 50%;
+  display: inline-block;
+}
+.wid40{
+ width: 40%;
+ display: inline-block;
+}
+.marRight10{
+  margin-right: 10%;
+}
+.top38{
+  position: relative; top: -38px;
+}
+.top65{
+  top : -65px;
+}
+.wid40B{
+  width: 40%;
+}
